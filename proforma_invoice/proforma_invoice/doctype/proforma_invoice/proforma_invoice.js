@@ -149,7 +149,7 @@ frappe.ui.form.on("Proforma Invoice Item", {
         frappe.call({
             method: "erpnext.stock.get_item_details.get_item_details",
             args: {
-                args: {
+                ctx: {
                     item_code: row.item_code,
                     customer: frm.doc.customer,
                     company: frm.doc.company,
