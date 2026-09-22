@@ -72,6 +72,11 @@
   "base_total_taxes_and_charges",
   "column_break_47",
   "total_taxes_and_charges",
+  "column_break_tds",
+  "taxes_and_charges_added",
+  "taxes_and_charges_deducted",
+  "base_taxes_and_charges_added",
+  "base_taxes_and_charges_deducted",
   "totals",
   "base_grand_total",
   "base_rounding_adjustment",
@@ -808,6 +813,50 @@
    "options": "currency",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_tds",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "taxes_and_charges_added",
+   "fieldtype": "Currency",
+   "label": "Taxes and Charges Added",
+   "options": "currency",
+   "hidden": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "taxes_and_charges_deducted",
+   "fieldtype": "Currency",
+   "label": "Taxes and Charges Deducted",
+   "options": "currency",
+   "hidden": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "base_taxes_and_charges_added",
+   "fieldtype": "Currency",
+   "label": "Taxes and Charges Added (Company Currency)",
+   "options": "Company:company:default_currency",
+   "hidden": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "base_taxes_and_charges_deducted",
+   "fieldtype": "Currency",
+   "label": "Taxes and Charges Deducted (Company Currency)",
+   "options": "Company:company:default_currency",
+   "hidden": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "no_copy": 1
   },
   {
    "fieldname": "totals",
