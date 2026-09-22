@@ -143,35 +143,35 @@ frappe.ui.form.on("Proforma Invoice", {
 
 frappe.ui.form.on("Proforma Invoice Item", {
 
-    item_code(frm, cdt, cdn) {
-        let row = locals[cdt][cdn];
+    // item_code(frm, cdt, cdn) {
+    //     let row = locals[cdt][cdn];
 
-        frappe.call({
-            method: "erpnext.stock.get_item_details.get_item_details",
-            args: {
-                ctx: {
-                    item_code: row.item_code,
-                    customer: frm.doc.customer,
-                    company: frm.doc.company,
-                    currency: frm.doc.currency,
-                    price_list: frm.doc.selling_price_list,
-                    doctype: frm.doc.doctype,
-                    qty: row.qty || 1
-                },
-                doc: frm.doc
-            },
-            callback(r) {
-                if (r.message) {
-                    frappe.model.set_value(cdt, cdn, {
-                        rate: r.message.price_list_rate || 0,
-                        qty: r.message.qty || 1
-                    });
+    //     frappe.call({
+    //         method: "erpnext.stock.get_item_details.get_item_details",
+    //         args: {
+    //             ctx: {
+    //                 item_code: row.item_code,
+    //                 customer: frm.doc.customer,
+    //                 company: frm.doc.company,
+    //                 currency: frm.doc.currency,
+    //                 price_list: frm.doc.selling_price_list,
+    //                 doctype: frm.doc.doctype,
+    //                 qty: row.qty || 1
+    //             },
+    //             doc: frm.doc
+    //         },
+    //         callback(r) {
+    //             if (r.message) {
+    //                 frappe.model.set_value(cdt, cdn, {
+    //                     rate: r.message.price_list_rate || 0,
+    //                     qty: r.message.qty || 1
+    //                 });
 
-                    frm.trigger("calculate_taxes_and_totals");
-                }
-            }
-        });
-    },
+    //                 frm.trigger("calculate_taxes_and_totals");
+    //             }
+    //         }
+    //     });
+    // },
 
     qty(frm) {
         frm.trigger("calculate_taxes_and_totals");
