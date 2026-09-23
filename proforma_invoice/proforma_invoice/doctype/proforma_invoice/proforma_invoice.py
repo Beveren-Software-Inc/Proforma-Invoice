@@ -3,9 +3,13 @@ from frappe import _
 from frappe.utils import flt, getdate
 from frappe.model.mapper import get_mapped_doc
 from erpnext.controllers.selling_controller import SellingController
+from proforma_invoice.proforma_invoice.controllers.taxes_and_totals import ProformaTaxesAndTotals
 
 
 class ProformaInvoice(SellingController):
+
+    def calculate_taxes_and_totals(self):
+        ProformaTaxesAndTotals(self)
 
     def validate(self):
         for tax in self.taxes:
